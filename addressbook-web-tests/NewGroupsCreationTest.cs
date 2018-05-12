@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace SeleniumTests
 {
     [TestFixture]
-    public class NewGroupCreationTests
+    public class NewGroupsCreationTest
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -21,7 +21,7 @@ namespace SeleniumTests
         public void SetupTest()
         {
             FirefoxOptions options = new FirefoxOptions();
-            options.BrowserExecutableLocation = @"C:\Users\vitaliy.s\Downloads\FirefoxPortableESR\FirefoxPortable.exe"; 
+            options.BrowserExecutableLocation = @"C:\Users\vitaliy.s\Downloads\FirefoxPortableESR\FirefoxPortable.exe";
             options.UseLegacyImplementation = true;
             driver = new FirefoxDriver(options);
 
