@@ -13,7 +13,7 @@ namespace addressbook_web_tests
             Square s2 = new Square(8);
             Square s3 = s1;
 
-            Assert.AreEqual(s1.Size, 5);
+            Assert.AreEqual(s1.Size, 5); //
             Assert.AreEqual(s2.Size, 10);
             Assert.AreEqual(s3.Size, 5);
 
