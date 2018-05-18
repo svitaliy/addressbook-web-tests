@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class NewGroupsCreationTest
+    public class NewContactCreationTest
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -46,21 +46,27 @@ namespace WebAddressbookTests
         [Test]
         public void TheUntitled2Test()
         {
-            // OpenHomePage
-            driver.Navigate().GoToUrl(baseURL + "addressbook/group.php");
-            // Login
-            driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys("admin");
-            driver.FindElement(By.Name("pass")).Clear();
-            driver.FindElement(By.Name("pass")).SendKeys("secret");
-            driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
-            // Init 
-            driver.FindElement(By.LinkText("add new")).Click();
-            // FillPersonalData
+            OpenHomePage();
+            Login();
+            InitAddingNewPersonalData();
+            FillPerconalData("Ivan", "Sidoroff");
+            // ERROR: Caught exception [Error: Dom locators are not implemented yet!]
+            ReturnToGroupPage();
+        }
+
+        private void ReturnToGroupPage()
+        {
+            
+            driver.FindElement(By.LinkText("Logout")).Click();
+        }
+
+        private void FillPerconalData(string personalname, string surname)
+        {
+            
             driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys("Ivan");
+            driver.FindElement(By.Name("firstname")).SendKeys(personalname);
             driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys("Middleivan");
+            driver.FindElement(By.Name("middlename")).SendKeys(surname);
             driver.FindElement(By.Name("lastname")).Clear();
             driver.FindElement(By.Name("lastname")).SendKeys("Lastivan");
             driver.FindElement(By.Name("nickname")).Clear();
@@ -93,9 +99,30 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("phone2")).SendKeys("appartments 007");
             driver.FindElement(By.Name("notes")).Clear();
             driver.FindElement(By.Name("notes")).SendKeys("No notes yet");
-            // ERROR: Caught exception [Error: Dom locators are not implemented yet!]
-            driver.FindElement(By.LinkText("Logout")).Click();
         }
+
+        private void InitAddingNewPersonalData()
+        {
+            
+            driver.FindElement(By.LinkText("add new")).Click();
+        }
+
+        private void Login()
+        {
+            
+            driver.FindElement(By.Name("user")).Clear();
+            driver.FindElement(By.Name("user")).SendKeys("admin");
+            driver.FindElement(By.Name("pass")).Clear();
+            driver.FindElement(By.Name("pass")).SendKeys("secret");
+            driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
+        }
+
+        private void OpenHomePage()
+        {
+            
+            driver.Navigate().GoToUrl(baseURL + "addressbook/group.php");
+        }
+
         private bool IsElementPresent(By by)
         {
             try
