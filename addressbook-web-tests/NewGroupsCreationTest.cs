@@ -46,13 +46,17 @@ namespace WebAddressbookTests
         [Test]
         public void TheUntitled2Test()
         {
+            // OpenHomePage
             driver.Navigate().GoToUrl(baseURL + "addressbook/group.php");
+            // Login
             driver.FindElement(By.Name("user")).Clear();
             driver.FindElement(By.Name("user")).SendKeys("admin");
             driver.FindElement(By.Name("pass")).Clear();
             driver.FindElement(By.Name("pass")).SendKeys("secret");
             driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
+            // Init 
             driver.FindElement(By.LinkText("add new")).Click();
+            // FillPersonalData
             driver.FindElement(By.Name("firstname")).Clear();
             driver.FindElement(By.Name("firstname")).SendKeys("Ivan");
             driver.FindElement(By.Name("middlename")).Clear();
