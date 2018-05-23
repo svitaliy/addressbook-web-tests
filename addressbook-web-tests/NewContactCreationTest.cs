@@ -47,9 +47,28 @@ namespace WebAddressbookTests
         public void TheUntitled2Test()
         {
             OpenHomePage();
-            Login();
+            Login(new AccountData ("admin", "secret"));
             InitAddingNewPersonalData();
-            FillPerconalData("Ivan", "Sidoroff");
+
+            PersonalData personalinfo = new PersonalData("Personalname", "Surname");
+            personalinfo.Title = "jgj";
+            personalinfo.Company = ";lh";
+            personalinfo.Address = "kj";
+            personalinfo.Home = "07";
+            personalinfo.Mobile = "df";
+            personalinfo.Work = "fbdg";
+            personalinfo.Fax = "fd";
+            personalinfo.Email = "tg";
+            personalinfo.Email2 = "tg";
+            personalinfo.Email3 = "tg";
+            personalinfo.Homepage = "tg";
+            personalinfo.Address2 = "uygf";
+            personalinfo.Phone2 = "5346";
+            personalinfo.Notes = "uids dfsdfs";
+
+
+
+            FillPersonalData(personalinfo);
             // ERROR: Caught exception [Error: Dom locators are not implemented yet!]
             ReturnToGroupPage();
         }
@@ -60,45 +79,45 @@ namespace WebAddressbookTests
             driver.FindElement(By.LinkText("Logout")).Click();
         }
 
-        private void FillPerconalData(string personalname, string surname)
+        private void FillPersonalData(string personalname, string surname)
         {
             
             driver.FindElement(By.Name("firstname")).Clear();
             driver.FindElement(By.Name("firstname")).SendKeys(personalname);
             driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys(surname);
+            driver.FindElement(By.Name("middlename")).SendKeys("Middleivan");
             driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys("Lastivan");
+            driver.FindElement(By.Name("lastname")).SendKeys(surname);
             driver.FindElement(By.Name("nickname")).Clear();
             driver.FindElement(By.Name("nickname")).SendKeys("Grom");
             driver.FindElement(By.Name("title")).Clear();
-            driver.FindElement(By.Name("title")).SendKeys("tittle");
+            driver.FindElement(By.Name("title")).SendKeys(personalinfo.Title);
             driver.FindElement(By.Name("company")).Clear();
-            driver.FindElement(By.Name("company")).SendKeys("NonamecOMPANY");
+            driver.FindElement(By.Name("company")).SendKeys(personalinfo.Company);
             driver.FindElement(By.Name("address")).Clear();
-            driver.FindElement(By.Name("address")).SendKeys("iVANOVO STR");
+            driver.FindElement(By.Name("address")).SendKeys(personalinfo.Address);
             driver.FindElement(By.Name("home")).Clear();
-            driver.FindElement(By.Name("home")).SendKeys("07");
+            driver.FindElement(By.Name("home")).SendKeys(personalinfo.Home);
             driver.FindElement(By.Name("mobile")).Clear();
-            driver.FindElement(By.Name("mobile")).SendKeys("055-55-55-55");
+            driver.FindElement(By.Name("mobile")).SendKeys(personalinfo.Mobile);
             driver.FindElement(By.Name("work")).Clear();
-            driver.FindElement(By.Name("work")).SendKeys("ceo");
+            driver.FindElement(By.Name("work")).SendKeys(personalinfo.Work);
             driver.FindElement(By.Name("fax")).Clear();
-            driver.FindElement(By.Name("fax")).SendKeys("077-77-77");
+            driver.FindElement(By.Name("fax")).SendKeys(personalinfo.Fax);
             driver.FindElement(By.Name("email")).Clear();
-            driver.FindElement(By.Name("email")).SendKeys("IVAN@IVAN.com");
+            driver.FindElement(By.Name("email")).SendKeys(personalinfo.Email);
             driver.FindElement(By.Name("email2")).Clear();
-            driver.FindElement(By.Name("email2")).SendKeys("IVAN@IVAN.com");
+            driver.FindElement(By.Name("email2")).SendKeys(personalinfo.Email2);
             driver.FindElement(By.Name("email3")).Clear();
-            driver.FindElement(By.Name("email3")).SendKeys("IVAN@IVAN.com");
+            driver.FindElement(By.Name("email3")).SendKeys(personalinfo.Email3);
             driver.FindElement(By.Name("homepage")).Clear();
-            driver.FindElement(By.Name("homepage")).SendKeys("www.homepage.com");
+            driver.FindElement(By.Name("homepage")).SendKeys(personalinfo.Homepage);
             driver.FindElement(By.Name("address2")).Clear();
-            driver.FindElement(By.Name("address2")).SendKeys("additional str\napp 007");
+            driver.FindElement(By.Name("address2")).SendKeys(personalinfo.Address2);
             driver.FindElement(By.Name("phone2")).Clear();
-            driver.FindElement(By.Name("phone2")).SendKeys("appartments 007");
+            driver.FindElement(By.Name("phone2")).SendKeys(personalinfo.Phone2);
             driver.FindElement(By.Name("notes")).Clear();
-            driver.FindElement(By.Name("notes")).SendKeys("No notes yet");
+            driver.FindElement(By.Name("notes")).SendKeys(personalinfo.Notes);
         }
 
         private void InitAddingNewPersonalData()

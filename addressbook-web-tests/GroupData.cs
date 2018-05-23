@@ -12,12 +12,10 @@ namespace WebAddressbookTests
         private string header = ""; // этот параметр установили с дефлолтным значением (пустым)
         private string footer = ""; 
 
-        public GroupData(string name, string header, string footer)
+        public GroupData(string name)
         {
             this.name = name;
-            this.header = header;
-            this.footer = footer;
-            
+                       
         }
 
         public string Name
