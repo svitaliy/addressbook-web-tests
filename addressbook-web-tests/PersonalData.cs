@@ -8,27 +8,53 @@ namespace addressbook_web_tests
 {
     class PersonalData
     {
-        private string personalname;
+        private string name;
         private string surname;
         private string title = "";
         private string company = "";
         private string address = "";
         private string home = "";
-        private byte mobile = "";
+        private string mobile = "";
         private string work = "";
-        private byte fax = "";
+        private string fax = "";
         private string email = "";
         private string email2 = "";
         private string email3 = "";
         private string homepage = "";
         private string address2 = "";
-        private byte phone2 = "";
+        private string phone2 = "";
         private string notes = "";
-
-        public PersonalData(string name)
+        public PersonalData()
         {
-            this.personalname = personalname;
+
+        }
+        public PersonalData(string name,string surname)
+        {
+            this.name = name;
             this.surname = surname;
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        public string Surname
+        {
+            get
+            {
+                return surname;
+            }
+            set
+            {
+                name = value;
+            }
         }
 
         public string Title

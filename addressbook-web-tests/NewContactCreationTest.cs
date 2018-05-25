@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using addressbook_web_tests;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -50,7 +51,7 @@ namespace WebAddressbookTests
             Login(new AccountData ("admin", "secret"));
             InitAddingNewPersonalData();
 
-            PersonalData personalinfo = new PersonalData("Personalname", "Surname");
+            PersonalData personalinfo = new PersonalData();
             personalinfo.Title = "jgj";
             personalinfo.Company = ";lh";
             personalinfo.Address = "kj";
@@ -79,15 +80,15 @@ namespace WebAddressbookTests
             driver.FindElement(By.LinkText("Logout")).Click();
         }
 
-        private void FillPersonalData(string personalname, string surname)
+        private void FillPersonalData(PersonalData personalinfo)
         {
             
             driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(personalname);
+            driver.FindElement(By.Name("firstname")).SendKeys(personalinfo.Name);
             driver.FindElement(By.Name("middlename")).Clear();
             driver.FindElement(By.Name("middlename")).SendKeys("Middleivan");
             driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(surname);
+            driver.FindElement(By.Name("lastname")).SendKeys(personalinfo.Surname);
             driver.FindElement(By.Name("nickname")).Clear();
             driver.FindElement(By.Name("nickname")).SendKeys("Grom");
             driver.FindElement(By.Name("title")).Clear();
@@ -126,7 +127,7 @@ namespace WebAddressbookTests
             driver.FindElement(By.LinkText("add new")).Click();
         }
 
-        private void Login()
+        private void Login(AccountData data)
         {
             
             driver.FindElement(By.Name("user")).Clear();
