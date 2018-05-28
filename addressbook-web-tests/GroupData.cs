@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebAddressbookTests
 {
-    class GroupData
+    public class GroupData
     {
         private string name;
         private string header = ""; // этот параметр установили с дефлолтным значением (пустым)
