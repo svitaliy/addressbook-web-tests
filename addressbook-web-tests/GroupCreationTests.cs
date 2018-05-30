@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace WebAddressbookTests
 {
     [TestFixture]                       //аттрибуты (каждый фреймворк имеет свои аттрибуты), метки
-    public class GruopCreationTests : TestBase
+    public class GroupCreationTests : TestBase
     {
 
         [Test]
@@ -25,6 +25,7 @@ namespace WebAddressbookTests
             group.Header = "ddd";
             group.Footer = "ccc";
             groupHelper.FillGroupForm(group);
+            
 
             groupHelper.SubmitGroupCreation();
             groupHelper.ReturnToGroupPage();

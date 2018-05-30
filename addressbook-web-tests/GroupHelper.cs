@@ -24,7 +24,7 @@ namespace WebAddressbookTests
 
             driver.FindElement(By.Name("new")).Click();
         }
-        protected void FillGroupForm(GroupData group)
+        public void FillGroupForm(GroupData group)
         {
 
             driver.FindElement(By.Name("group_name")).Clear();
@@ -41,9 +41,10 @@ namespace WebAddressbookTests
         }
         public void ReturnToGroupPage()
         {
-
+            //  ??? driver.FindElement(By.LinkText("groups")).Click();
             driver.FindElement(By.LinkText("group page")).Click();
-            driver.FindElement(By.LinkText("Logout")).Click();
+            //driver.FindElement(By.LinkText("Logout")).Click();
+            
         }
         public void SelectGroup(int index)
         {

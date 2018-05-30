@@ -48,8 +48,8 @@ namespace WebAddressbookTests
             }
             Assert.AreEqual("", verificationErrors.ToString());
         }
-      driver.FindElement(By.LinkText("groups")).Click();
-        }
+      //driver.FindElement(By.LinkText("groups")).Click();
+        
  
 
     }
